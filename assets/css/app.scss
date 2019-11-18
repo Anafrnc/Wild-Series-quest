@@ -9,9 +9,10 @@ $theme-colors: (
     background-color: var(--primary);
 }
 
-h1{
-    color: #D8D8F6;
+body{
+  background-color: white;
 }
+
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
