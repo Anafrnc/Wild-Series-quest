@@ -2,15 +2,11 @@
 
 // customize some Bootstrap variables
 $theme-colors: (
-    'primary': darken(#428bca, 20%)
+    'primary': #04395E,
 );
 
-body {
-    background-color: #04395E;
-}
-
 .navbar{
-    background-color: #04395E;
+    background-color: var(--primary);
 }
 
 h1{
