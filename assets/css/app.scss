@@ -1,0 +1,21 @@
+//assets/css/global.scss
+
+// customize some Bootstrap variables
+$theme-colors: (
+    'primary': darken(#428bca, 20%)
+);
+
+body {
+    background-color: #04395E;
+}
+
+.navbar{
+    background-color: #04395E;
+}
+
+h1{
+    color: #D8D8F6;
+}
+
+// the ~ allows you to reference things in node_modules
+@import "~bootstrap/scss/bootstrap";
