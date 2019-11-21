@@ -21,6 +21,12 @@ class Category
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,6 +38,18 @@ class Category
     }
 
     public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getcategory(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setcategory(string $name): self
     {
         $this->name = $name;
 
