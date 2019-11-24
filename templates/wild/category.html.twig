@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All programs{% endblock %}
+{% block title %}All category{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
-    {% for program in programs %}
+    <h1>Toutes les séries de la table category : </h1>
+    {% for name in categoryName %}
         <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ category.name }}</h2>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
@@ -24,4 +24,3 @@
         Testing index() method from WildController to view all programs.
     </a>
 {% endblock %}
-
