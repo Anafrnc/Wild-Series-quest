@@ -69,7 +69,7 @@ Class WildController extends AbstractController
         ]);
     }
 
-    /**
+    /*/**
      * @Route(@Route("/category/{categoryName}", name="show_category")
      * @return Response
      */
@@ -81,7 +81,7 @@ Class WildController extends AbstractController
             throw $this
                 ->createNotFoundException('No category has been sent to find a category.');
         }
-        $category = preg_replace(
+        $categoryName = preg_replace(
             '/-/',
             ' ', ucwords(trim(strip_tags($categoryName)), "-")
         );
@@ -95,7 +95,7 @@ Class WildController extends AbstractController
             ->findBy(['category' => $categoryName], ['id' => 'DESC'], 3);
 
         return $this->render('wild/show.html.twig', [
-            'programs' => $programs,
+            'program' => $programs,
             'category'  => $categoryName,
         ]);
     }
