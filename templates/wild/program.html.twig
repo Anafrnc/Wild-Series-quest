@@ -5,8 +5,7 @@
     <h1>Toutes les saisons de la série : </h1>
     {% for season in seasons %}
         <div>
-            <a href="{{ path("wild_season", {"id":season.id}) }}"> Saison : {{ season.id }}</a>
-            <p>{{ season.year }}</p>
+            <a href="{{ path("wild_season", {"id":season.id}) }}"> Saison : {{ season.id }},sortie le {{ season.year }}</a>
             <p>{{ season.description }}</p>
         </div>
     {% else %}

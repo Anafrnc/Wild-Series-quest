@@ -1,19 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Episode {{ episodes.number }}{% endblock %}
+{% block title %}Episode {{ episode.number }} de {{ program }}{% endblock %}
 
 {% block body %}
-    <h1>Episode {{ episodes.number }} : {{ episodes.title }}</h1>
-    <div>
-        <p><strong>{{ episodes.title }}</strong> Episode n°{{ episodes.number }}</p>
-        <p>{{ episodes.synopsis }}</p>
-    </div>
-    <a href="../program/season/{{ seasons.id }}">
-        Retour à la saison
-    </a>
-    <a href="../program/{{ program }}">
-        Retour au program
-    </a>
+    <h1>Saison {{ season.id }} de {{ program }}</h1>
+    <br>
+    <h2>Episode {{ episode.number }} : {{ episode.title }} </h2>
+    <p>{{ episode.synopsis }}</p>
+
+    <a href="{{ path('wild_program', { 'slug': "walking-dead" }) }}">
+        Retour à la série
+        <a href="{{ path("wild_season", {"id":season.id}) }}"> Retour à la saison </a>
+</a>
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
     </a>
