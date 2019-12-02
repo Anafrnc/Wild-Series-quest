@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Season {% endblock %}
+
+{% block body %}
+    <h1>Saison de la série {{ season.program.title }}</h1>
+    <h1>Touts les épisodes de cette saison </h1>
+    {% for episode in season.episodes %}
+        <p>{{ episode.title }}</p>
+        <p>{{ episode.synopsis }}</p>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
