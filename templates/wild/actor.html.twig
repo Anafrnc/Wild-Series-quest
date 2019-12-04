@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actor.name}}{% endblock %}
+
+{% block body %}
+    <h5>{{ actor.name }} joue dans : {{ program.actors }}</h5>
+
+   <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
