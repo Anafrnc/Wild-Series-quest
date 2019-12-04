@@ -11,35 +11,31 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence;
+
+
 /**
- * @Route("/actor")
+ * @Route("/actor", name="actor_")
  */
 class ActorController extends AbstractController
 {
-
     /**
-     * @Route("/", name="actors")
+     * @Route("/", name="index")
      */
-    public function index(ActorRepository $actorRepository): Response
+    public function index(ActorRepository $actorRepository):Response
     {
         return $this->render('wild/actor.html.twig', [
             'actors' => $actorRepository->findAll(),
         ]);
     }
-
     /**
-     * @Route("/{id}", name="actor")
+     * @Route("/{id}", name="details")
      */
-    public function show(Actor $actor, Program $program): Response
+    public function show(Actor $actor):Response
     {
-        return $this->render('wild/actor.html.twig', [
-            'actor' => $actor,
-            'program' => $program->getActors(),
-        ]);
-
+        if (!$actor) {
+            throw $this
+                ->createNotFoundException('No parameter has been sent to find an actor');
+        }
+        return $this->render('wild/actor.html.twig', ['actors'=>$actor]);
     }
-
-
-
-
 }
