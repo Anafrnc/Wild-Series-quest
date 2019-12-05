@@ -13,6 +13,16 @@
     {% endfor %}
     <img src="{{ program.poster }}" class="card-img-fluid" alt="Image serie">
 
+    <strong>Acteur :</strong>
+    <ul>
+        {% for actor in program.actors %}
+            <li>{{ actor.name }} </li>
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
+
+
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
     </a>
