@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 Class WildController extends AbstractController
 {
     /**
-     * @Route("/", name="app_index")
+     * @Route("/", name="index")
      * @return Response A response instance
      */
     public function index() : Response
