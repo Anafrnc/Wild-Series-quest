@@ -19,23 +19,18 @@ use Doctrine\Common\Persistence;
 class ActorController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @param Actor $actors
+     * @param Program $programs
+     * @return Response A Response instance
+     * @Route("/{id}", name="index")
      */
-    public function index(ActorRepository $actorRepository):Response
+    public function index(Actor $actor):Response
     {
+        $program = $actor->getPrograms();
         return $this->render('wild/actor.html.twig', [
-            'actors' => $actorRepository->findAll(),
+            'actor' => $actor,
+            'programs' => $program,
         ]);
     }
-    /**
-     * @Route("/{id}", name="details")
-     */
-    public function show(Actor $actor):Response
-    {
-        if (!$actor) {
-            throw $this
-                ->createNotFoundException('No parameter has been sent to find an actor');
-        }
-        return $this->render('wild/actor.html.twig', ['actors'=>$actor]);
-    }
+
 }
